@@ -1,1 +1,38 @@
-# JMJOMY
+# JMJOMY<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JMJOMY - BJT</title>
+    <style>
+        body { background: #0b0b1a; color: white; text-align: center; font-family: sans-serif; }
+        .header { background: gold; color: black; padding: 15px; font-weight: bold; font-size: 24px; }
+        .stats { border: 2px solid gold; margin: 20px; padding: 20px; border-radius: 15px; background: #1a1a2e; }
+        .val { color: gold; font-size: 30px; font-weight: bold; }
+        button { width: 80%; padding: 15px; margin: 10px; border-radius: 10px; border: none; font-weight: bold; font-size: 18px; cursor: pointer; }
+        .btn-gold { background: gold; color: black; }
+        .btn-oil { background: #444; color: white; }
+    </style>
+</head>
+<body>
+    <div class="header">إمبراطورية BJT - القائد بريار</div>
+    <div class="stats">
+        <p>الرصيد الذهبي: <span id="g" class="val">0</span></p>
+        <p>مخزون النفط: <span id="o" class="val">0</span></p>
+        <p>الوقت المتبقي: <span id="t" style="color:red">15:00</span></p>
+    </div>
+    <button class="btn-gold" onclick="addG()">تعدين ذهب ⛏️</button>
+    <button class="btn-oil" onclick="addO()">استخراج نفط 🛢️</button>
+
+    <script>
+        let g=0, o=0, s=900;
+        function addG(){ g+=100; document.getElementById('g').innerText=g; }
+        function addO(){ o+=50; document.getElementById('o').innerText=o; }
+        setInterval(()=>{
+            s--; if(s<0) s=900;
+            let m=Math.floor(s/60), sec=s%60;
+            document.getElementById('time').innerText = m + ":" + (sec<10?"0":"") + sec;
+        }, 1000);
+    </script>
+</body>
+</html>
